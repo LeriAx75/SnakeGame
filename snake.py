@@ -30,8 +30,10 @@ def inside(head):
 
 def move_food():
     """Move food to a random position."""
+    """Se definen los popsibles movimientos"""
     directions = [(0, 10), (0, -10), (10, 0), (-10, 0)]
     
+    """Se revisa que los movimientos sean válidos"""
     for dx, dy in directions:
         new_pos = vector(food.x + dx, food.y + dy)
         if inside(new_pos) and new_pos not in snake:
@@ -67,6 +69,7 @@ def move():
     square(food.x, food.y, 9, 'green')
     update()
     ontimer(move, 100)
+    """Llamamos a la función move_food() en cada paso para mantener la comida en movimiento"""
     move_food()
 
 
